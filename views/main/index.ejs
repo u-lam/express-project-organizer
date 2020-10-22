@@ -12,5 +12,16 @@
     <h2>
       <a href="/projects/<%= project.id %>"><%= project.name %></a>
     </h2>
-  </div>
+
+  <!-- EDIT -->
+  <form action="/projects/<%= project.id %>/edit" method="GET">
+    <button type="submit" class="btn btn-primary">Edit</button>
+  </form>
+
+  <!-- DELETE  -->
+  <form action="/projects/<%= project.id %>?_method=DELETE" method="POST">
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </form>
+
+</div>
 <% }); %>

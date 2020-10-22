@@ -1,3 +1,5 @@
+<a href="/">&larr; Back Home</a>
+
 <h1><%= project.name %></h1>
 
 <a class="btn btn-primary" href="<%= project.githubLink %>" target="_blank">
@@ -10,8 +12,22 @@
   Deployed Link
 </a>
 
-<p><%= project.description %></p>
+<p>Description: <%= project.description %></p>
+
+<% if (categories.length < 1) { %>
+  <h4>No categories associated with this project</h4>
+<% } %>
+
+<% categories.forEach(function(cat) { %>
+  <div class="well">
+      <a href="/categories/<%= cat.id %>">
+        <p>Category: <%= cat.name %></p>
+    </a>
+  </div>
+<% }); %>
+
 
 <hr />
 
-<a href="/">&larr; Back Home</a>
+
+

@@ -1,5 +1,6 @@
 let express = require('express')
 let ejsLayouts = require('express-ejs-layouts')
+let methodOverride = require('method-override')
 let db = require('./models')
 let app = express()
 
@@ -7,6 +8,7 @@ app.set('view engine', 'ejs')
 app.use(require('morgan')('dev'))
 app.use(express.urlencoded({ extended: false }))
 app.use(ejsLayouts)
+app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
   db.project.findAll()
@@ -20,6 +22,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/projects', require('./controllers/projects'))
+app.use('/categories', require('./controllers/categories'))
 
 app.get('*', (req, res) => {
   res.render('main/404')

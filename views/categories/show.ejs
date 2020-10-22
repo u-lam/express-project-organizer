@@ -1,0 +1,27 @@
+
+<h2>Related projects to this <%= category %> category:</h2>
+
+<% if (projects.length < 1) { %>
+  <h4>No project associated with this category</h4>
+<% } %>
+
+<% projects.forEach(function(project) { %>
+  <div class="well">
+    <h2>
+      <a href="/projects/<%= project.id %>">
+        <p><%= project.name %></p>
+    </a>
+      <p><%= project.description %></p>
+    </h2>
+  </div>
+<% }); %>
+
+
+
+
+
+
+
+<hr />
+
+<a href="/">&larr; Back Home</a>
