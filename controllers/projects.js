@@ -8,7 +8,7 @@ router.post('/', (req, res) => {
     where: {
       name: req.body.name,
       githubLink: req.body.githubLink,
-      deployLink: req.body.deployedLink,
+      deployLink: req.body.deployLink,
       description: req.body.description
     }
   }).then(([project, created]) => {
@@ -26,6 +26,7 @@ router.post('/', (req, res) => {
   }).then((project) => {
     res.redirect('/')
   }).catch((error) => {
+    console.log(error);
     res.status(400).render('main/404')
   })
 })
